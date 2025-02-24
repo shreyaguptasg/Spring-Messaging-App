@@ -1,5 +1,6 @@
 package com.example.springMessagingApp.controller;
 
+import com.example.springMessagingApp.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,6 +23,12 @@ public class HelloController {
     @GetMapping("/param/{name}")
     public String sayHelloWithPath(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
+    }
+
+    // POST request to return a hello message with first and last name from request body
+    @PostMapping("/post")
+    public String sayHelloWithFullName(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 }
 
