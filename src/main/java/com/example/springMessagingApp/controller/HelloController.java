@@ -11,5 +11,11 @@ public class HelloController {
     public String sayHello() {
         return "Hello from BridgeLabz";
     }
+
+    // GET request with query parameter to return a personalized hello message
+    @GetMapping("/query")
+    public String sayHelloWithName(@RequestParam String name) {
+        return "Hello " + name + " from BridgeLabz";
+    }
 }
 
